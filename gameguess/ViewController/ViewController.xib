@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController" customModule="gameguess" customModuleProvider="target">
+            <connections>
+                <outlet property="soundButton" destination="Sma-vD-YgX" id="pgZ-dj-6M3"/>
+                <outlet property="view" destination="iN0-l3-epB" id="MMG-3t-Xfy"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="pSO-gA-IUR">
+                    <rect key="frame" x="0.0" y="0.0" width="418" height="896"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Riddles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITk-K0-g6p">
+                    <rect key="frame" x="157" y="40" width="100" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="VqX-fM-MT9"/>
+                        <constraint firstAttribute="width" constant="100" id="tpv-lv-HGn"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="italicSystem" pointSize="30"/>
+                    <color key="textColor" name="AccentColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZL-gG-QvT">
+                    <rect key="frame" x="50" y="454" width="314" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="iia-Tq-C3K"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain">
+                        <backgroundConfiguration key="background" image="storeButton"/>
+                    </buttonConfiguration>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DrH-ao-j9v">
+                    <rect key="frame" x="50" y="394" width="314" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="nux-zF-DcC"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain">
+                        <backgroundConfiguration key="background" image="howtoplayButton"/>
+                    </buttonConfiguration>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7V-DU-Mfs">
+                    <rect key="frame" x="50" y="334" width="314" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="9tJ-GZ-48V"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain">
+                        <backgroundConfiguration key="background" image="playButton"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="playButton:" destination="-1" eventType="touchUpInside" id="VP6-3v-aBy"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sma-vD-YgX">
+                    <rect key="frame" x="357" y="40" width="47" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="ZWd-eJ-jLe"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain">
+                        <backgroundConfiguration key="background" image="sound-onButton"/>
+                    </buttonConfiguration>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Sma-vD-YgX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="3iW-4P-4aH"/>
+                <constraint firstItem="NZL-gG-QvT" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="4o5-qL-JmZ"/>
+                <constraint firstItem="ITk-K0-g6p" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="DDd-8U-mYi"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="DrH-ao-j9v" secondAttribute="trailing" constant="50" id="FPh-Nm-Y4f"/>
+                <constraint firstItem="w7V-DU-Mfs" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="KUn-QV-99B"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Sma-vD-YgX" secondAttribute="trailing" constant="10" id="R86-ey-Fsd"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="w7V-DU-Mfs" secondAttribute="trailing" constant="50" id="ZHr-2x-ATH"/>
+                <constraint firstItem="w7V-DU-Mfs" firstAttribute="top" secondItem="ITk-K0-g6p" secondAttribute="bottom" constant="250" id="bqJ-Cd-y4Y"/>
+                <constraint firstItem="ITk-K0-g6p" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="157" id="cSH-jJ-9WO"/>
+                <constraint firstItem="NZL-gG-QvT" firstAttribute="top" secondItem="DrH-ao-j9v" secondAttribute="bottom" constant="10" id="cxS-r8-sve"/>
+                <constraint firstItem="DrH-ao-j9v" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="d2y-kM-cNe"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="NZL-gG-QvT" secondAttribute="trailing" constant="50" id="iac-lg-1AF"/>
+                <constraint firstItem="ITk-K0-g6p" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="loy-Je-jOe"/>
+                <constraint firstItem="DrH-ao-j9v" firstAttribute="top" secondItem="w7V-DU-Mfs" secondAttribute="bottom" constant="10" id="ubO-u1-QMd"/>
+                <constraint firstItem="Sma-vD-YgX" firstAttribute="leading" secondItem="ITk-K0-g6p" secondAttribute="trailing" constant="100" id="wce-Fk-cyc"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="113.83928571428571"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="default" width="768" height="1024"/>
+        <image name="howtoplayButton" width="490" height="97"/>
+        <image name="playButton" width="490" height="97"/>
+        <image name="sound-onButton" width="64" height="64"/>
+        <image name="storeButton" width="490" height="97"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
