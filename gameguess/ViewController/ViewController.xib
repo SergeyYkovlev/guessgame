@@ -35,9 +35,9 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZL-gG-QvT">
-                    <rect key="frame" x="50" y="454" width="314" height="50"/>
+                    <rect key="frame" x="50" y="474" width="314" height="60"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="iia-Tq-C3K"/>
+                        <constraint firstAttribute="height" constant="60" id="iia-Tq-C3K"/>
                     </constraints>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain">
@@ -45,9 +45,9 @@
                     </buttonConfiguration>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DrH-ao-j9v">
-                    <rect key="frame" x="50" y="394" width="314" height="50"/>
+                    <rect key="frame" x="50" y="404" width="314" height="60"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="nux-zF-DcC"/>
+                        <constraint firstAttribute="height" constant="60" id="nux-zF-DcC"/>
                     </constraints>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain">
@@ -55,9 +55,9 @@
                     </buttonConfiguration>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7V-DU-Mfs">
-                    <rect key="frame" x="50" y="334" width="314" height="50"/>
+                    <rect key="frame" x="50" y="334" width="314" height="60"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="9tJ-GZ-48V"/>
+                        <constraint firstAttribute="height" constant="60" id="9tJ-GZ-48V"/>
                     </constraints>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain">
