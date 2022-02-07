@@ -10,10 +10,12 @@ import UIKit
 
 class GameViewController: UIViewController {
     
-    let answer = "ANSWER"
+    let answer = "ANSWE"
     var stringLettersRandom = ""
     var userAnswer = ""
+    var letterAnswerIndexs = [Int] ()
     let image = UIImage(named: "letterButton")
+    let inputImage = UIImage(named: "inputButton")
     
     // MARK: - Subviews
     
@@ -41,13 +43,48 @@ class GameViewController: UIViewController {
     @IBOutlet weak var answerFourButton: UIButton!
     @IBOutlet weak var answerFiveButton: UIButton!
     
-    @IBOutlet weak var answerButtons: UIButton!
-    
+   
+    // MARK: - Livecycle
     override func viewDidLoad() {
         super .viewDidLoad()
         random()
         fillButton()
     }
+    
+    // MARK: - Action
+    
+    @IBAction func undoFirstButton(_ sender: UIButton) {
+        answerUndo(answerFirstButton)
+    }
+    
+    @IBAction func undoTwoButton(_ sender: UIButton) {
+        answerUndo(answerTwoButton)
+    }
+    
+    @IBAction func undoThreeButton(_ sender: UIButton) {
+        answerUndo(answerThreeButton)
+    }
+
+    @IBAction func undoFourButton(_ sender: UIButton) {
+        answerUndo(answerFourButton)
+    }
+    
+    @IBAction func undoFiveButton(_ sender: UIButton) {
+        answerUndo(answerFiveButton)
+    }
+    
+    @IBAction func undoActionButton(_ sender: UIButton) {
+        undo(sender)
+    }
+    
+    @IBAction func lettersTapped(_ sender: UIButton) {
+        letterTapped(sender)
+    }
+    @IBAction func showHintButton(_ sender: Any) {
+        hint()
+    }
+    
+    // MARK: - Private
     
     func random() {
         let letters : String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -70,13 +107,12 @@ class GameViewController: UIViewController {
             stringLettersRandom.append(randomLetter)
             stringLetters.remove(at: stringLetters.firstIndex(of: randomLetter)!)
         }
-        
         print(stringLettersRandom)
     }
     
     func fillButton() {
         let letterButtons: [UIButton] = [letterFirstButton, letterTwoButton, letterThreeButton, letterFourButton, letterFiveButton, letterSixButton, letterSevenButton, letterEightButton, letterNineButton, letterTenButton, letterElevenButton, letterTwelveButton, letterThirteenButton, letterFourtenButton ]
-            
+        
         for index in 0..<letterButtons.count {
             let letter = String(Array(stringLettersRandom)[index])
             letterButtons[index].setTitle(letter, for: .normal)
@@ -88,50 +124,75 @@ class GameViewController: UIViewController {
     
     func letterTapped(_ sender: UIButton) {
         
-        
         let answerButtons: [UIButton] = [answerFirstButton, answerTwoButton, answerThreeButton, answerFourButton, answerFiveButton]
         
         if userAnswer.count < answerButtons.count {
             answerButtons[userAnswer.count].setTitle(sender.titleLabel?.text, for: .normal)
             answerButtons[userAnswer.count].configuration?.background.image = image
+            answerButtons[userAnswer.count].isEnabled = true
             userAnswer.append((sender.titleLabel?.text)!)
             sender.isHidden = true
+            let letterButtons: [UIButton] = [letterFirstButton, letterTwoButton, letterThreeButton, letterFourButton, letterFiveButton, letterSixButton, letterSevenButton, letterEightButton, letterNineButton, letterTenButton, letterElevenButton, letterTwelveButton, letterThirteenButton, letterFourtenButton ]
+            
+            letterAnswerIndexs.append(letterButtons.firstIndex(of: sender)!)
+            
+            if userAnswer == answer{
+                let clue = UIAlertController(title: "Level Complited", message: "ANSWE", preferredStyle: .alert)
+                
+                let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+             
+                clue.addAction(action)
+                
+                present(clue, animated: true, completion: nil)
+                
+            }
         }
+    }
+    
+    func undo(_ sender: UIButton) {
+        if !userAnswer.isEmpty {
+            let letterButtons: [UIButton] = [letterFirstButton, letterTwoButton, letterThreeButton, letterFourButton, letterFiveButton, letterSixButton, letterSevenButton, letterEightButton, letterNineButton, letterTenButton, letterElevenButton, letterTwelveButton, letterThirteenButton, letterFourtenButton ]
+            let answerButtons: [UIButton] = [answerFirstButton, answerTwoButton, answerThreeButton, answerFourButton, answerFiveButton]
+        let index = letterAnswerIndexs.last
+        letterButtons[index!].isHidden = false
+        letterAnswerIndexs.removeLast()
+        userAnswer.removeLast()
+        answerButtons[userAnswer.count].configuration?.background.image = inputImage
+        answerButtons[userAnswer.count].setTitle("", for: .normal)
+        }
+    }
+    
+    func hint() {
+        let clue = UIAlertController(title: "HINT", message: "A", preferredStyle: .alert)
         
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+     
+        clue.addAction(action)
+        
+        present(clue, animated: true, completion: nil)
     }
     
-    @IBAction func letterFirstTappedButton(_ sender: UIButton) {
-        letterTapped(letterFirstButton)
-//        letterFirstButton.isHidden = true
-    }
-
-    @IBAction func letterTwoTappedButton(_ sender: UIButton) {
-        letterTapped(letterTwoButton)
-//        letterTwoButton.isHidden = true
-    }
-    @IBAction func letterThreeTappedButton(_ sender: UIButton) {
-        letterTapped(letterThreeButton)
-//        letterThreeButton.isHidden = true
-    }
-    
-    @IBAction func letterFourTappedButton(_ sender: UIButton) {
-        letterTapped(letterFourButton)
-//        letterFourButton.isHidden = true
-    }
-    @IBAction func letterFiveTappedButton(_ sender: UIButton) {
-        letterTapped(letterFiveButton)
-//        letterFiveButton.isHidden = true
-    }
-    
-    @IBAction func letterSixTappedButton(_ sender: UIButton) {
-        letterTapped(letterSixButton)
-//        letterSixButton.isHidden = true
-    }
-    
-    @IBAction func letterSevenTappedButton(_ sender: UIButton) {
-        letterTapped(letterSevenButton)
-//        letterSevenButton.isHidden = true
+    func answerUndo(_ sender: UIButton) {
+        
+        let letterButtons: [UIButton] = [letterFirstButton, letterTwoButton, letterThreeButton, letterFourButton, letterFiveButton, letterSixButton, letterSevenButton, letterEightButton, letterNineButton, letterTenButton, letterElevenButton, letterTwelveButton, letterThirteenButton, letterFourtenButton ]
+        let answerButtons: [UIButton] = [answerFirstButton, answerTwoButton, answerThreeButton, answerFourButton, answerFiveButton]
+        let index = letterAnswerIndexs.last!
+        
+        for button in answerButtons.reversed() {
+            if button.titleLabel?.text?.isEmpty == false {
+                if button == sender {
+                    letterButtons[index].isHidden = false
+                    letterAnswerIndexs.removeLast()
+                    userAnswer.removeLast()
+                    sender.configuration?.background.image = inputImage
+                    sender.titleLabel?.text = ""
+                    sender.setTitle("", for: .normal)
+                    sender.isEnabled = false
+                }
+                return
+            }
+        }
     }
 }
-    
-    
+
+
