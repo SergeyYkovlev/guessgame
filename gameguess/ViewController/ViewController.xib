@@ -43,6 +43,9 @@
                     <buttonConfiguration key="configuration" style="plain">
                         <backgroundConfiguration key="background" image="storeButton"/>
                     </buttonConfiguration>
+                    <connections>
+                        <action selector="storeButton:" destination="-1" eventType="touchUpInside" id="syM-rM-Pp7"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DrH-ao-j9v">
                     <rect key="frame" x="50" y="404" width="314" height="60"/>
@@ -53,6 +56,9 @@
                     <buttonConfiguration key="configuration" style="plain">
                         <backgroundConfiguration key="background" image="howtoplayButton"/>
                     </buttonConfiguration>
+                    <connections>
+                        <action selector="howToPlayButton:" destination="-1" eventType="touchUpInside" id="YKr-bb-Ge2"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7V-DU-Mfs">
                     <rect key="frame" x="50" y="334" width="314" height="60"/>

@@ -23,5 +23,12 @@ class ViewController: UIViewController {
         let gameViewController = GameViewController()
         navigationController?.pushViewController(gameViewController, animated: true)
     }
+    @IBAction func howToPlayButton(_ sender: UIButton) {
+        let infoGameViewController = InfoGameViewController()
+        navigationController?.pushViewController(infoGameViewController, animated: true)
+    }
+    @IBAction func storeButton(_ sender: UIButton) {
+        let storeViewController = StoreViewController()
+        navigationController?.pushViewController(storeViewController, animated: true)
+    }
 }
-
