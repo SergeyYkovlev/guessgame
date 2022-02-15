@@ -9,12 +9,12 @@ import Foundation
 
 class Level {
     
-    let text: String
+    let question: String
     let answer: String
     let hint: String
     
-    init(text: String, answer: String, hint: String) {
-        self.text = text
+    init(question: String, answer: String, hint: String) {
+        self.question = question
         self.answer = answer
         self.hint = hint
     }

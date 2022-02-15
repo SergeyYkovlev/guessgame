@@ -27,7 +27,7 @@
                 <outlet property="letterThreeButton" destination="rha-of-9Oc" id="aaO-n4-jeO"/>
                 <outlet property="letterTwelveButton" destination="mHU-ad-Jf9" id="Q7e-BR-MPi"/>
                 <outlet property="letterTwoButton" destination="J4Y-IM-Rlm" id="sAJ-oD-k5g"/>
-                <outlet property="levelnemberLabel" destination="ZaT-em-b83" id="G7M-Fj-dPA"/>
+                <outlet property="levelNumberLabel" destination="ZaT-em-b83" id="G7M-Fj-dPA"/>
                 <outlet property="questionLabel" destination="rhx-6u-CR5" id="XCJ-tS-MZ6"/>
                 <outlet property="undoButton" destination="MLu-0d-c07" id="dS4-tv-AjS"/>
                 <outlet property="view" destination="iN0-l3-epB" id="sb3-OX-Gnl"/>
@@ -55,13 +55,13 @@
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rhx-6u-CR5">
                     <rect key="frame" x="107" y="398" width="200" height="100"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="200" id="QV4-uK-tFS"/>
                         <constraint firstAttribute="height" constant="100" id="SY9-Jg-mEw"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZEO-1r-OK1">
                     <rect key="frame" x="0.0" y="700" width="414" height="60"/>

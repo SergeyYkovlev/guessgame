@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     // MARK: - Action
 
     @IBAction func playButton(_ sender: UIButton) {
-        let gameViewController = GameViewController()
+        let gameViewController = NewGameViewController()
         navigationController?.pushViewController(gameViewController, animated: true)
     }
     @IBAction func howToPlayButton(_ sender: UIButton) {
