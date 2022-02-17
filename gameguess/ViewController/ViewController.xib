@@ -103,7 +103,7 @@
                 <constraint firstItem="DrH-ao-j9v" firstAttribute="top" secondItem="w7V-DU-Mfs" secondAttribute="bottom" constant="10" id="ubO-u1-QMd"/>
                 <constraint firstItem="Sma-vD-YgX" firstAttribute="leading" secondItem="ITk-K0-g6p" secondAttribute="trailing" constant="100" id="wce-Fk-cyc"/>
             </constraints>
-            <point key="canvasLocation" x="137.68115942028987" y="113.83928571428571"/>
+            <point key="canvasLocation" x="223" y="83"/>
         </view>
     </objects>
     <resources>

@@ -8,6 +8,10 @@
 import Foundation
 import UIKit
 
+protocol NewGameViewControllerDelegate {
+    func closeNewGameViewController()
+}
+
 class NewGameViewController: UIViewController {
     
     private struct Constants {
@@ -16,6 +20,8 @@ class NewGameViewController: UIViewController {
         static let letterButtonSize: CGSize = .init(width: 44, height: 44)
         static let letterButtonSideInset: CGFloat = 5
     }
+    
+    var delegate: NewGameViewControllerDelegate?
     
     var userAnswer = ""
     var letterAnswerIndexs = [Int] ()
@@ -188,7 +194,6 @@ class NewGameViewController: UIViewController {
     }
     
     @objc func hintAction(_ sender: UIButton) {
-        print("adfs")
         hint()
     }
     
@@ -287,8 +292,9 @@ class NewGameViewController: UIViewController {
     }
     
     func backmenu(action: UIAlertAction!) {
-        navigationController?.popViewController(animated: true)
         UserDefaults.standard.setValue(1, forKey: "level")
+        gameService.increaseCoins()
+        delegate?.closeNewGameViewController()
     }
     
     private func hint() {
@@ -345,14 +351,20 @@ class NewGameViewController: UIViewController {
     
     func answerUndo(_ sender: UIButton) {
         let index = letterAnswerIndexs.last!
-        for button in answerButtons.reversed() where button.titleLabel?.text?.isEmpty == false && button == sender {
-            letterButton[index].isHidden = false
-            letterAnswerIndexs.removeLast()
-            userAnswer.removeLast()
-            sender.configuration?.background.image = inputImage
-            sender.titleLabel?.text = ""
-            sender.setTitle("", for: .normal)
-            sender.isEnabled = false
+        for button in answerButtons.reversed() {
+            if button.titleLabel?.text?.isEmpty == false {
+                if button == sender {
+                    letterButton[index].isHidden = false
+                    letterAnswerIndexs.removeLast()
+                    userAnswer.removeLast()
+                    sender.configuration?.background.image = inputImage
+                    sender.titleLabel?.text = ""
+                    sender.setTitle("", for: .normal)
+                    sender.isEnabled = false
+                } else {
+                    return
+                }
+            }
         }
     }
 }
