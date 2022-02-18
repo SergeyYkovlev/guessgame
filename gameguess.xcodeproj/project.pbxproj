@@ -112,6 +112,14 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		0C9FAEEA27BF596100FA60C3 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				0C9CFD3827B37B0C00E79A8F /* GameService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		0CBBAF9A27A7A50900723957 = {
 			isa = PBXGroup;
 			children = (
@@ -133,8 +141,8 @@
 			children = (
 				0CBBAFA627A7A50900723957 /* AppDelegate.swift */,
 				0CBBAFA827A7A50900723957 /* SceneDelegate.swift */,
-				0C9CFD3827B37B0C00E79A8F /* GameService.swift */,
 				0C9CFD3C27B37B9800E79A8F /* Level.swift */,
+				0C9FAEEA27BF596100FA60C3 /* Service */,
 				0C9CFDA727BE2D3C00E79A8F /* Coordinator */,
 				0C9CFDA427BE2CF400E79A8F /* NewCameViewController */,
 				0C9CFD4227B6171200E79A8F /* GameViewController */,

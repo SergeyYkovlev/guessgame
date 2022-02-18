@@ -22,7 +22,6 @@ class NewGameViewController: UIViewController {
     }
     
     var delegate: NewGameViewControllerDelegate?
-    
     var userAnswer = ""
     var letterAnswerIndexs = [Int] ()
     let image = UIImage(named: "letterButton")
@@ -30,6 +29,7 @@ class NewGameViewController: UIViewController {
     let hintImage = UIImage(named: "hintButton")
     let imageLetterButton = UIImage(named: "letterButton")
     let returnButton = UIImage(named: "returnButton")
+    let backImage = UIImage(named: "backButton")
     var answerButtons: [UIButton] = []
     var letterButton: [UIButton] = []
     var gameService: GameService = GameService.shared
@@ -110,6 +110,14 @@ class NewGameViewController: UIViewController {
         return button
     }()
     
+    private lazy var backButton: UIButton = {
+        let button = UIButton()
+        button.configuration = .plain()
+        button.configuration?.background.image = backImage
+        button.addTarget(self, action: #selector(backAction), for: .touchUpInside)
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(backgroundImageView)
@@ -123,6 +131,10 @@ class NewGameViewController: UIViewController {
         view.addSubview(coinsLabel)
         view.addSubview(hintButton)
         view.addSubview(undoButton)
+        view.addSubview(backButton)
+        
+        self.navigationItem.setHidesBackButton(true, animated:true)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         
         if UserDefaults.standard.value(forKey: "coins") != nil {
             gameService.coins = UserDefaults.standard.value(forKey: "coins") as! NSInteger
@@ -183,6 +195,12 @@ class NewGameViewController: UIViewController {
                                  y: (buttonBackgroundFirstImageView.frame.origin.y + 87),
                                  width: 44,
                                  height: 44)
+        
+        backButton.frame = .init(x: (headerImageView.frame.origin.x + 10),
+                                 y: (headerImageView.frame.origin.y + 42),
+                                 width: 44,
+                                 height: 44)
+        
         fillAnswerButtons()
         fillFirstLetterButton()
         fillLastLetterButton()
@@ -211,7 +229,6 @@ class NewGameViewController: UIViewController {
         let i = Constants.answerButtonSize.width * CGFloat(answer.count) + Constants.answerButtonSideInset * CGFloat(answer.count - 1)
         var prevButtonPointX: CGFloat = (view.frame.width - i) / 2
         for _ in 0..<answer.count{
-            //            let y = view.frame.origin.y + 100
             let y = ((view.frame.height - 60) / 2) + 217
             let button = UIButton(frame: CGRect(x: prevButtonPointX ,
                                                 y: y,
@@ -232,7 +249,6 @@ class NewGameViewController: UIViewController {
         var prevButtonPointX: CGFloat = (buttonBackgroundFirstImageView.frame.size.width - i - Constants.letterButtonSize.width) / 2
         
         for _ in 0..<7 {
-            //            let y = (view.frame.size.height - Constants.letterButtonSize.height) / 2 + 130
             let button = UIButton(frame: CGRect(x: prevButtonPointX,
                                                 y: answerBackgroundImageView.frame.origin.y + 87,
                                                 width: Constants.letterButtonSize.width,
@@ -252,7 +268,6 @@ class NewGameViewController: UIViewController {
         var prevButtonPointX: CGFloat = (buttonBackgroundFirstImageView.frame.size.width - i - Constants.letterButtonSize.width) / 2
         
         for _ in 0..<7 {
-            //            let y = ((view.frame.size.height - Constants.letterButtonSize.height) / 2) - 30
             let button = UIButton(frame: CGRect(x: prevButtonPointX,
                                                 y: buttonBackgroundFirstImageView.frame.origin.y + 87,
                                                 width: Constants.letterButtonSize.width,
@@ -289,6 +304,10 @@ class NewGameViewController: UIViewController {
     
     @objc func lettersButtonAction(_ sender: UIButton) {
         letterTapped(sender)
+    }
+    
+    @objc func backAction() {
+        delegate?.closeNewGameViewController()
     }
     
     func backmenu(action: UIAlertAction!) {
